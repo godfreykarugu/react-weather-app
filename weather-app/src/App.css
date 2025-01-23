@@ -14,14 +14,7 @@ body{
   align-items: center;
 }
 
-weather-container{
-  background-color: rgb(48, 48, 188);
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .weather-container {
   background-color: rgb(48, 48, 188);
@@ -44,20 +37,22 @@ weather-container{
  outline: 0;
  border-radius: 20px;
  margin-right: 2px;
+ font-size: 19px;
+ color: black;
 }
 .weather-input button{
   background-color: aqua;
-  height: 25px;
-  width: 50px;
+  height: 30px;
+  width: 70px;
   border-radius: 15px;
   border: 0;
   cursor: pointer;
-  color:  black
+  color:  black;
+  font-size: 19px;
+  
  
 }
-.city-details img{
-  margin: 10px 0;
-}
+
 .weather-details{
   display: flex;
   gap: 10px;

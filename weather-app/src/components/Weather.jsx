@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWind, faWater } from '@fortawesome/free-solid-svg-icons';
+
 
 const Weather = () => {
   const [city, setCity] = useState('');
@@ -29,6 +32,7 @@ const Weather = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     search(city); // Trigger the search with the city name
+    setCity('')
   };
 
   useEffect(()=>{
@@ -38,10 +42,12 @@ const Weather = () => {
   return (
     <div>
       <div className="weather-container">
+        <p>Find weather conditons in your city</p>
         <form onSubmit={handleSubmit} className="weather-input">
           <input
             type="text"
             placeholder="Enter City"
+            value ={city}
             onChange={(e) => setCity(e.target.value)}
           />
           <button type="submit">Search</button>
@@ -53,18 +59,18 @@ const Weather = () => {
                 src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                 alt="weather-icon"
               />
-              <h2>{Math.round(weather.main.temp - 273.15)}°C</h2>
-              <h3>{weather.name}</h3>
+              <h1>Temp: {Math.round(weather.main.temp - 273.15)}°C</h1>
+              <h3>City: {weather.name}</h3>
             </div>
             <div className="weather-details">
               <div className="weather-input">
-                <img src="" alt="" />
+                <FontAwesomeIcon icon={faWind} size="2x" style={{ color: 'gray' }} />
                 <p>
                   {weather.wind.speed} km/h <br /> <span>wind speed</span>
                 </p>
               </div>
               <div className="weather-input">
-                <img src="" alt="" />
+                <FontAwesomeIcon icon={faWater} size="2x" style={{ color: 'blue' }} />
                 <p>
                   {weather.main.humidity}% <br /> <span>humidity</span>
                 </p>
